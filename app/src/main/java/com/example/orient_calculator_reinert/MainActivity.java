@@ -72,4 +72,98 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_ms).setOnClickListener(view -> onMemoryStore());|
         findViewById(R.id.btn_mv).setOnClickListener(view -> onMemoryView());
     }
+
+    // Números
+    private void onNumberButtonClick(String digit) {
+        if (resetScreen) {
+            currentInput = "";
+            resetScreen = false;
+        }
+
+        if (currentInput.equals("0") && digit.equals("0")){
+            return;
+        }
+
+        if (currentInput.equals("0") && !digit.equals("0")) {
+            currentInput = digit;
+        } else {
+            currentInput += digit;
+        }
+
+        updateDisplay();
+    }
+
+    // Vírgula
+    private void onDecimalButtonClick() {
+        if (resetScreen) {
+            currentInput = "0.";
+            resetScreen = false;
+            updateDisplay();
+            return;
+        }
+
+        if (currentInput.contains(".")) {
+            return;
+        }
+
+        if (currentInput.isEmpty()) {
+            currentInput = "0.";
+        } else {
+            currentInput = ".";
+        }
+        updateDisplay();
+    }
+
+    // Operadores
+    private void onOperatorButtonClick(String operator) {
+        if (!Double.isNaN(operand1)) {
+            onEqualsButtonClick();
+        }
+        try {
+            operand1 = Double.parseDouble(currentInput);
+        } catch (NumberFormatException e) {
+            operand1 = 0.0;
+        }
+        currentOperator = operator;
+        resetScreen = true;
+    }
+
+    private void onEqualButtonClick() {
+        if (Double.isNaN(operand1) || currentOperator.isEmpty()) {
+            return;
+        }
+
+        try {
+            operand2 = Double.parseDouble(currentInput);
+        } catch (NumberFormatException e) {
+            operand2 = 0.0;
+        }
+
+        double result = 0.0;
+
+        switch (currentOperator) {
+            case "+":
+                result = operand1 + operand2;
+            case "-":
+                result = operand1 - operand2;
+            case "*":
+                result = operand1 * operand2;
+            case "/":
+                if (operand2 == 0) {
+                    display.setText("Erro");
+                    resetCalculator();
+                    return;
+                }
+                result = operand1 / operand2;
+                break;
+        }
+
+        currentInput = formaResult(result);
+        operand1 = result;
+        resetScreen = true;
+        currentOperator = "";
+        updateDisplay();
+    }
+
+
 }
