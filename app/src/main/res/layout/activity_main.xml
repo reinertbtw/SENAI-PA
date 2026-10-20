@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".MainActivity">
+
+    <!-- Logo Central -->
+    <ImageView
+        android:layout_width="210dp"
+        android:layout_height="77dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Logo Orion ITAO"
+        android:src="@drawable/senai" />
+
+    <!-- Título do App -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:text="LUCAS REINERT"
+        android:textColor="@color/display_text"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <!-- Display -->
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/display_background"
+        android:ellipsize="end"
+        android:gravity="end|center_vertical"
+        android:padding="16dp"
+        android:singleLine="true"
+        android:text="0"
+        android:textColor="@color/display_text"
+        android:textSize="42sp" />
+
+    <!-- Linha 1: Memória -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_mc"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="MC" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_mr"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="MR" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_m_plus"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="M+" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_m_minus"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="M-" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ms"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="MS" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_mv"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_memory"
+            android:text="Mv" />
+    </LinearLayout>
+
+    <!-- Linha 2: %, CE, C, ⌫ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_percent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="%"
+            android:background="@drawable/button_function" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ce"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CE"
+            android:background="@drawable/button_clear" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_c"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="C"
+            android:background="@drawable/button_clear" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_backspace"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="⌫"
+            android:background="@drawable/button_backspace" />
+    </LinearLayout>
+
+    <!-- Linha 3: 1/x, x², √x, ÷ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_reciprocal"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1/x"
+            android:background="@drawable/button_function" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_square"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="x²"
+            android:background="@drawable/button_function" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cube_root"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="√x"
+            android:background="@drawable/button_function" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_divide"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="÷"
+            android:background="@drawable/button_operation" />
+    </LinearLayout>
+
+    <!-- Linha 4: 7 8 9 x -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_7"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="7"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_8"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_9"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="9"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_multiply"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="X"
+            android:background="@drawable/button_operation" />
+    </LinearLayout>
+
+    <!-- Linha 5: 4 5 6 - -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_4"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="4"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_5"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_6"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_subtract"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:background="@drawable/button_operation" />
+    </LinearLayout>
+
+    <!-- Linha 6: 1 2 3 + -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_1"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_2"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_3"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="3"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+"
+            android:background="@drawable/button_operation" />
+    </LinearLayout>
+
+    <!-- Linha 7: +/- 0 , = -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sign"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="+/-"
+            android:background="@drawable/button_function" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_0"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_decimal"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=","
+            android:background="@drawable/button_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_equals"
+            style="@style/CalcButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="="
+            android:background="@drawable/button_equals" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SENAI / Blumenau"
+        android:layout_gravity="center"
+        android:textColor="@color/display_text"
+        android:textSize="15sp"
+        android:autoLink="web" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PROFESSOR RICARDO MARCEL"
+        android:layout_gravity="center"
+        android:textColor="@color/display_text"
+        android:textSize="15sp"
+        android:autoLink="web" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://github.com/reinertbtw"
+        android:textColor="?android:attr/textColorSecondary"
+        android:layout_gravity="center"
+        android:layout_marginTop="7dp"
+        android:textSize="18sp"
+        android:autoLink="web" />
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.ORIENT_CALCULATOR_REINERT"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/orion_blue</item>
+        <item name="colorPrimaryDark">@color/orion_blue</item>
+
+        <item name="android:statusBarColor">@color/orion_blue</item>
+        <item name="android:navigationBarColor">@color/background</item>
+
+        <item name="android:windowLightStatusBar">false</item>
+
+    </style>
+
+    <style name="Theme.ORIENT_CALCULATOR_REINERT"
+        parent="Base.Theme.ORIENT_CALCULATOR_REINERT" />
+</resources>
